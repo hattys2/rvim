@@ -1,9 +1,13 @@
+extern crate getch;
+
+use getch::Getch;
 use std::env;
 use std::process::Command;
-use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
+use std::error::Error;
+
 
 fn main() {
     let output = Command::new("clear")
@@ -30,6 +34,13 @@ fn main() {
                                                        why.description()),
             Ok(_) => print!("{}", s),
         }
+    }
+
+
+    let g = Getch::new();
+
+    match g.getch().unwrap() {
+        _ => println!("none"),
     }
 
 }
